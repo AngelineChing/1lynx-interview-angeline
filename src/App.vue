@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-app-bar
+      extended
       color= #EFB7BA
       class="d-flex flex-row align-items-center px-2 my-2">
       <v-avatar>
