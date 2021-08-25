@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import VueSimpleAlert from "vue-simple-alert";
 import App from "./App.vue";
 import vuetify from "./plugins/vuetify";
 // import EditProfile from "./components/EditProfile";
@@ -27,6 +28,8 @@ Vue.use(VueRouter);
 //   router,
 //   render: (h) => h(App),
 // }).$mount("#app");
+
+Vue.use(VueSimpleAlert);
 
 new Vue({
   vuetify,
