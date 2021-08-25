@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mt-5 px-5">
+  <v-container class="mt-3 px-5">
     <!-- Profile Picture -->
     <div class="d-flex justify-content-center pb-3">
       <v-avatar

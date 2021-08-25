@@ -1,66 +1,45 @@
 <template>
   <div>
-    <!-- Drawer Action Button -->
-    <v-app-bar fixed class="shadow-none py-3 white-bg">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="nav-icon"></v-app-bar-nav-icon>
+    <v-app-bar
+      color= #EFB7BA
+      class="d-flex flex-row align-items-center px-2 my-2">
+      <v-avatar>
+        <v-img
+          src="https://cdn.vuetifyjs.com/images/john.jpg"
+          alt="John"
+        />
+      </v-avatar>
+      <div class="name-div m-2">
+        <h5 class="name">
+          John wefewqrfeqwrf
+        </h5>
+        <p class="secondary phone">
+          019-8288465
+        </p>
+      </div>  
     </v-app-bar>
-
-    <!-- Drawer Navigation -->
-    <v-navigation-drawer v-model="drawer" fixed temporary>
-
-      <!-- Account Info + Edit Button -->
-      <v-card
-        class="d-flex flex-row align-items-center shadow-none px-2 my-2 justify-content-between"
-        color="#6474E5"
-        tile>
-        <v-avatar>
-          <v-img
-            src="https://cdn.vuetifyjs.com/images/john.jpg"
-            alt="John"
-          />
-        </v-avatar>
-        <div>
-          <v-card-title>
-            John wefewqrfeqwrf
-          </v-card-title>
-          <v-card-subtitle>
-            019-8288465
-          </v-card-subtitle>
-        </div>
-        <v-card-actions>
-          <v-btn
-            icon
-            @click.stop="drawer = !drawer"
-          >
-            <v-icon color="#fff">mdi-account-edit-outline</v-icon>
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-
-      <!-- Display All Users Button -->
-      <v-card class="shadow-none py-2">
-        <v-btn
-          @click.stop="drawer = !drawer"
-          @click="display"
-          color="#6474E5"
-          text
-          elevation="0"
-          width="100%"
-          tile
-        >
+    <!-- Navigation -->
+    <v-tabs vertical class="mt-3">
+      <v-tab active-class="active-tab">
+        <v-card class="shadow-none d-flex bg-transparent">
+          <v-icon>mdi-account-edit-outline</v-icon>
+          <p class="label"> Edit Profile</p>
+        </v-card>
+      </v-tab>
+      <v-tab active-class="active-tab">
+        <v-card class="shadow-none d-flex bg-transparent">
           <v-icon>mdi-view-list</v-icon>
-          <v-card-text> Display All Users</v-card-text>
-        </v-btn>
-      </v-card>
-      <!-- <router-link to="{ path: '/EditProfile' }">
-        <v-btn>
-          Home
-          </v-btn>
-          </router-link> -->
-    </v-navigation-drawer>
+          <p class="label"> Display Users</p>
+        </v-card>
+      </v-tab>
 
-    <EditProfile v-model="edit"/>
-    <DisplayUsers v-model="display"/>
+      <v-tab-item>
+        <EditProfile/>
+      </v-tab-item>
+      <v-tab-item>
+        <DisplayUsers/>
+      </v-tab-item>
+    </v-tabs>
   </div>
 </template>
 
@@ -82,17 +61,17 @@ export default {
       edit: false,
     }
   },
-
-  methods: {
-    display() {
-      const path = `/DisplayUsers`
-      if (this.$route.path !== path) this.$router.push(path)
-    }
-  },
 };
 </script>
 
 <style>
+.side-bar {
+  width: 10%;
+  max-width: 50px;
+}
+.upper-bar {
+  background-color: #EFB7BA;
+}
 .white-bg {
   background-color: transparent !important;
 }
@@ -100,19 +79,30 @@ export default {
   background-color: #6474E5;
   color: white !important;
 }
-.v-card__title {
-  color: white;
+.name-div {
+  padding-top: 3px;
+}
+.name {
+  padding: 5px;
+  margin: 0;
   text-overflow: ellipsis;
   overflow: hidden;
   word-break: break-word;
   display: -webkit-box !important;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  line-height: 2.8rem !important;
-  padding: 10px !important;
+  line-height: 1rem !important;
 }
-.v-card__subtitle {
-  color: white;
-  padding: 0 10px 15px !important;
+.phone {
+  padding: 5px;
+  margin: 0;
+}
+.active-tab {
+  height: 8em;
+  background-color: #CBD5F0;
+}
+.label {
+  margin: 0;
+  padding: 3px;
 }
 </style>
